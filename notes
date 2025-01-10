@@ -1,1 +1,3 @@
 notes
+scp /home/ramdisk/rpi4/output/target/lib/modules/6.6.28-v7l/kernel/drivers/i2c/i2c-stub.ko.xz ssh root@192.168.0.167:/
+dtparam=i2c_arm=on
