@@ -3,3 +3,74 @@ scp /home/ramdisk/rpi4/output/target/lib/modules/6.6.28-v7l/kernel/drivers/i2c/i
 dtparam=i2c_arm=on
 dtoverlay=ov5647
 camera_auto_detect=1
+/usr/lib/systemd/user/pipewire.socket
+/usr/lib/systemd/user/pipewire.service
+
+systemctl --user stop pipewire
+systemctl --user disable pipewire
+systemctl --user mask pipewire
+
+
+
+aspiinfo
+    4  raspinfo 
+    5  raspinfo  | grep pipewire
+    6  sudo systemctl --user disable pipewire
+    7  sudo systemctl --user disable pipewire.socket
+    8  sudo systemctl --user mask pipewire
+    9  systemctl --user status pipewire
+   10  systemctl stop  pipewire
+   11  sudo systemctl --user stop pipewire
+   12  systemctl --user stop pipewire
+   13  systemctl --user disable pipewire
+   14  systemctl --user mask pipewire
+   15  rpicam-hello 
+   16  ps aux | grep pipewire
+   17  history 
+   18  systemctl --user stop pipewire.socket
+   19  systemctl --user disable pipewire.socket
+   20  systemctl --user mask pipewire.socket
+   21  ps aux | grep pipewire
+   22  kill -9 2064
+   23  kill -9 2172
+   24  ps aux | grep pipewire
+   25  kill -9 2187
+   26  ps aux | grep pipewire
+   27  systemctl --user stop pipewire
+   28  systemctl --user stop pipewire-pulse
+   29  systemctl --user stop pipewire.socket
+   30  ps aux | grep pipewire
+   31  systemctl --user mask pipewire
+   32  systemctl --user mask pipewire-pulse
+   33  systemctl --user mask pipewire.socket
+   34  ps aux | grep pipewire
+   35  systemctl list-dependencies pipewire
+   36  systemctl --user stop pipewire
+   37  systemctl --user stop pipewire-pulse
+   38  systemctl --user stop pipewire.socket
+   39  systemctl --user disable pipewire
+   40  systemctl --user disable pipewire-pulse
+   41  systemctl --user disable pipewire.socket
+   42  systemctl --user mask pipewire
+   43  systemctl --user mask pipewire-pulse
+   44  systemctl --user mask pipewire.socket
+   45  ls ~/.config/autostart/
+   46  ps aux | grep pipewire
+   47  systemctl --user unmask pipewire-media-session.service
+   48  ps aux | grep pipewire
+   49  systemctl --user status pipewire 
+   50  ps aux | grep pipewire
+   51  rmmod ov5647 
+   52  fuser ov5647
+   53  fuser /dev/video0
+   54  lsmod | grep ov5647
+   55  rmmod  bcm2835_unicam 
+   56  sudo rmmod  bcm2835_unicam 
+   57  lsmod | grep ov5647
+   58  rmmod ov5647 
+   59  sudo rmmod ov5647 
+   60  dmesg 
+   61  modprobe ov5647
+   62  sudo modprobe ov5647
+   63  dmesg 
+   64  history 
