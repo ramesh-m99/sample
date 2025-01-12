@@ -9,6 +9,7 @@ camera_auto_detect=1
 systemctl --user stop pipewire
 systemctl --user disable pipewire
 systemctl --user mask pipewire
+    printk(KERN_INFO "In function %s\n", __func__);
 
 
 
