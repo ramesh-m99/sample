@@ -22,3 +22,25 @@ systemctl --user mask pipewire.socket
 
 sudo rmmod bcm2835_unicam
 sudo rmmod ov5647
+
+
+dmesg  | grep ram-unicam
+[  181.991694] ram-unicam unicam_probe
+[  181.991941] ram-unicam of_unicam_connect_subdevs
+[  260.996963] ram-unicam unicam_remove
+[  260.997126] ram-unicam unregister_nodes
+[  300.654577] ram-unicam unicam_probe
+[  300.654826] ram-unicam of_unicam_connect_subdevs
+[  390.978445] ram-unicam unicam_async_bound
+[  390.978454] ram-unicam to_unicam_device
+[  390.978461] ram-unicam unicam_async_complete
+[  390.978468] ram-unicam to_unicam_device
+[  390.978478] ram-unicam register_node
+[  390.978484] ram-unicam unicam_mc_set_default_format
+[  390.978491] ram-unicam unicam_calc_format_size_bpl
+[  390.978498] ram-unicam bytes_per_line
+[  390.979158] ram-unicam unicam_get
+[  390.979374] ram-unicam unicam_put
+[  391.028594] ram-unicam unicam_v4l2_open
+[  391.028641] ram-unicam unicam_querycap
+[  391.028798] ram-unicam unicam_v4l2_release
