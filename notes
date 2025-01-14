@@ -24,7 +24,7 @@ sudo rmmod bcm2835_unicam
 sudo rmmod ov5647
 
 v4l2-ctl -v width=1296,height=972,pixelformat=pGAA
-   32  v4l2-ctl --stream-mmap --stream-to=/dev/null --stream-count=100
+v4l2-ctl --stream-mmap --stream-to=/dev/null --stream-count=100
 
 
 dmesg  | grep ram-unicam
