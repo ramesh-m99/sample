@@ -1,0 +1,94 @@
+[  658.333157] my remove
+[  658.333209] ------------[ cut here ]------------
+[  658.333212] WARNING: CPU: 2 PID: 3937 at drivers/clk/clk.c:4710 __clk_put+0x120/0x158
+[  658.333227] Modules linked in: driver(O-) rfcomm cmac algif_hash aes_arm64 aes_generic algif_skcipher af_alg bnep brcmfmac_wcc brcmfmac hci_uart btbcm bluetooth binfmt_misc brcmutil raspberrypi_hwmon cfg80211 v4l2_dv_timings v4l2_fwnode bcm2835_codec(C) rpivid_hevc(C) bcm2835_v4l2(C) bcm2835_isp(C) bcm2835_mmal_vchiq(C) v4l2_async v4l2_mem2mem ecdh_generic videobuf2_vmalloc videobuf2_dma_contig ecc videobuf2_memops videobuf2_v4l2 rfkill videodev libaes raspberrypi_gpiomem vc_sm_cma(C) videobuf2_common snd_bcm2835(C) mc joydev nvmem_rmem sg uio_pdrv_genirq uio i2c_dev ledtrig_pattern fuse dm_mod ip_tables x_tables ipv6 hid_multitouch vc4 v3d snd_soc_hdmi_codec drm_display_helper cec drm_dma_helper gpu_sched drm_kms_helper drm_shmem_helper i2c_mux_pinctrl drm drm_panel_orientation_quirks i2c_mux snd_soc_core i2c_brcmstb snd_compress snd_pcm_dmaengine snd_pcm snd_timer i2c_bcm2835 snd backlight [last unloaded: driver(O)]
+[  658.333380] CPU: 2 PID: 3937 Comm: rmmod Tainted: G         C O       6.6.51+rpt-rpi-v8 #1  Debian 1:6.6.51-1+rpt3
+[  658.333386] Hardware name: Raspberry Pi 4 Model B Rev 1.5 (DT)
+[  658.333388] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[  658.333393] pc : __clk_put+0x120/0x158
+[  658.333397] lr : __clk_put+0x2c/0x158
+[  658.333401] sp : ffffffc081d3bb90
+[  658.333403] x29: ffffffc081d3bb90 x28: ffffff8040b68000 x27: 0000000000000000
+[  658.333411] x26: 0000000000000000 x25: 0000000000000000 x24: ffffffec9c23d850
+[  658.333419] x23: ffffffec9bea4008 x22: ffffff804025e810 x21: ffffffc081d3bc78
+[  658.333427] x20: ffffff80017316c0 x19: ffffff804545e100 x18: 0000000000000000
+[  658.333434] x17: 0000000000000000 x16: ffffffec9ad05f38 x15: 0000000000000000
+[  658.333442] x14: 000000000000000e x13: ffffffec9b94cbb0 x12: 00000000ad583ee9
+[  658.333449] x11: 0000000000000000 x10: ffffffec9b46ff50 x9 : ffffffec9b3d5644
+[  658.333456] x8 : ffffffc081d3bb70 x7 : 0000000000000000 x6 : ffffff8040b68000
+[  658.333464] x5 : ffffff8040b68000 x4 : 0000000000000000 x3 : 0000000000000000
+[  658.333471] x2 : ffffff8040b68000 x1 : ffffff8040b68000 x0 : 000000004545e130
+[  658.333478] Call trace:
+[  658.333482]  __clk_put+0x120/0x158
+[  658.333486]  clk_put+0x18/0x30
+[  658.333491]  devm_clk_release+0x34/0x50
+[  658.333495]  release_nodes+0x68/0x108
+[  658.333502]  devres_release_all+0x94/0xf8
+[  658.333508]  device_unbind_cleanup+0x20/0x78
+[  658.333512]  device_release_driver_internal+0x1fc/0x238
+[  658.333517]  driver_detach+0x58/0xa8
+[  658.333521]  bus_remove_driver+0x74/0xd0
+[  658.333525]  driver_unregister+0x38/0x70
+[  658.333529]  platform_driver_unregister+0x1c/0x30
+[  658.333535]  mydriver_exit+0x30/0xcf8 [driver]
+[  658.333547]  __arm64_sys_delete_module+0x1a8/0x298
+[  658.333555]  invoke_syscall+0x50/0x128
+[  658.333561]  el0_svc_common.constprop.0+0x48/0xf0
+[  658.333567]  do_el0_svc+0x24/0x38
+[  658.333572]  el0_svc+0x40/0xe8
+[  658.333580]  el0t_64_sync_handler+0x100/0x130
+[  658.333584]  el0t_64_sync+0x190/0x198
+[  658.333588] ---[ end trace 0000000000000000 ]---
+[  658.333599] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000094
+[  658.333606] Mem abort info:
+[  658.333609]   ESR = 0x0000000096000005
+[  658.333612]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  658.333616]   SET = 0, FnV = 0
+[  658.333619]   EA = 0, S1PTW = 0
+[  658.333622]   FSC = 0x05: level 1 translation fault
+[  658.333625] Data abort info:
+[  658.333628]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+[  658.333631]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[  658.333634]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[  658.333638] user pgtable: 4k pages, 39-bit VAs, pgdp=00000000628e0000
+[  658.333643] [0000000000000094] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
+[  658.333652] Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
+[  658.333657] Modules linked in: driver(O-) rfcomm cmac algif_hash aes_arm64 aes_generic algif_skcipher af_alg bnep brcmfmac_wcc brcmfmac hci_uart btbcm bluetooth binfmt_misc brcmutil raspberrypi_hwmon cfg80211 v4l2_dv_timings v4l2_fwnode bcm2835_codec(C) rpivid_hevc(C) bcm2835_v4l2(C) bcm2835_isp(C) bcm2835_mmal_vchiq(C) v4l2_async v4l2_mem2mem ecdh_generic videobuf2_vmalloc videobuf2_dma_contig ecc videobuf2_memops videobuf2_v4l2 rfkill videodev libaes raspberrypi_gpiomem vc_sm_cma(C) videobuf2_common snd_bcm2835(C) mc joydev nvmem_rmem sg uio_pdrv_genirq uio i2c_dev ledtrig_pattern fuse dm_mod ip_tables x_tables ipv6 hid_multitouch vc4 v3d snd_soc_hdmi_codec drm_display_helper cec drm_dma_helper gpu_sched drm_kms_helper drm_shmem_helper i2c_mux_pinctrl drm drm_panel_orientation_quirks i2c_mux snd_soc_core i2c_brcmstb snd_compress snd_pcm_dmaengine snd_pcm snd_timer i2c_bcm2835 snd backlight [last unloaded: driver(O)]
+[  658.333785] CPU: 2 PID: 3937 Comm: rmmod Tainted: G        WC O       6.6.51+rpt-rpi-v8 #1  Debian 1:6.6.51-1+rpt3
+[  658.333790] Hardware name: Raspberry Pi 4 Model B Rev 1.5 (DT)
+[  658.333793] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[  658.333798] pc : __clk_put+0x12c/0x158
+[  658.333803] lr : __clk_put+0x2c/0x158
+[  658.333807] sp : ffffffc081d3bb90
+[  658.333810] x29: ffffffc081d3bb90 x28: ffffff8040b68000 x27: 0000000000000000
+[  658.333819] x26: 0000000000000000 x25: 0000000000000000 x24: ffffffec9c23d850
+[  658.333827] x23: ffffffec9bea4008 x22: ffffff804025e810 x21: ffffffc081d3bc78
+[  658.333835] x20: ffffff80017316c0 x19: ffffff804545e100 x18: 0000000000000000
+[  658.333844] x17: 0000000000000000 x16: ffffffec9ad05f38 x15: 0000000000000000
+[  658.333852] x14: 000000000000000e x13: ffffffec9b94cbb0 x12: 00000000ad583ee9
+[  658.333860] x11: 0000000000000000 x10: ffffffec9b46ff50 x9 : ffffffec9b3d5644
+[  658.333868] x8 : ffffffc081d3bb70 x7 : 0000000000000000 x6 : ffffff8040b68000
+[  658.333876] x5 : ffffff8040b68000 x4 : 0000000000000000 x3 : 0000000000000000
+[  658.333884] x2 : 000000004545e130 x1 : 0000000000000000 x0 : 000000004545e130
+[  658.333892] Call trace:
+[  658.333895]  __clk_put+0x12c/0x158
+[  658.333899]  clk_put+0x18/0x30
+[  658.333904]  devm_clk_release+0x34/0x50
+[  658.333908]  release_nodes+0x68/0x108
+[  658.333914]  devres_release_all+0x94/0xf8
+[  658.333921]  device_unbind_cleanup+0x20/0x78
+[  658.333926]  device_release_driver_internal+0x1fc/0x238
+[  658.333931]  driver_detach+0x58/0xa8
+[  658.333936]  bus_remove_driver+0x74/0xd0
+[  658.333940]  driver_unregister+0x38/0x70
+[  658.333945]  platform_driver_unregister+0x1c/0x30
+[  658.333951]  mydriver_exit+0x30/0xcf8 [driver]
+[  658.333960]  __arm64_sys_delete_module+0x1a8/0x298
+[  658.333966]  invoke_syscall+0x50/0x128
+[  658.333972]  el0_svc_common.constprop.0+0x48/0xf0
+[  658.333979]  do_el0_svc+0x24/0x38
+[  658.333985]  el0_svc+0x40/0xe8
+[  658.333992]  el0t_64_sync_handler+0x100/0x130
+[  658.333996]  el0t_64_sync+0x190/0x198
+[  658.334003] Code: 17ffffea d4210000 f9400261 b9403262 (b9409420) 
+[  658.334008] ---[ end trace 0000000000000000 ]---
