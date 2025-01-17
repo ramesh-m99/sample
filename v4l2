@@ -1,0 +1,6 @@
+v4l2-ctl --list-devices
+v4l2-ctl --list-formats
+v4l2-ctl --list-framesizes YUYV
+v4l2-ctl --list-formats-ext
+v4l2-ctl -d /dev/video0 --get-fmt-video
+v4l2-ctl -d /dev/video0 --set-fmt-video=pixelformat=MJPG,width=640,height=480
