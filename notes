@@ -25,7 +25,12 @@ sudo rmmod ov5647
 
 v4l2-ctl -v width=1296,height=972,pixelformat=pGAA
 v4l2-ctl --stream-mmap --stream-to=/dev/null --stream-count=100
-
+v4l2-ctl --stream-mmap --stream-to=frames.raw --stream-count=100
+ffplay -f rawvideo -pix_fmt yuyv422 -s 1920x1080 -i frames.raw
+how to capture raw frame
+v4l2-ctl --device=/dev/video0 --stream-mmap --stream-to=frames.raw --stream-count=100
+play raw frame 
+ffplay -f rawvideo -pix_fmt yuyv422 -s 640x480  -i frames.raw
 
 dmesg  | grep ram-unicam
 [  181.991694] ram-unicam unicam_probe
